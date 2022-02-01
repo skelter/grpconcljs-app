@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package entityevents;
+
+service EntityMonitor {
+  rpc Subscribe() returns (stream EntityEvent);
+  }
+
+enum EntityEventCode {
+EntitiesDump = 0;
+EntityCreated = 1;
+EntityDestroyed = 2;
+EntityUpdated = 3;
+Assoc = 4;
+Dissoc = 5;
+}
+
+message Entity {
+  string entityType = 1;
+  string entityId = 2;
+  map<string,string> attributes = 3;
+  }
+
+message EntityEvent {
+  EntityEventCode code = 1;
+  repeated Entity entity = 2;
+  string fromId = 3;
+  string assocAttr = 4;
+  string toId = 5;
+  }
