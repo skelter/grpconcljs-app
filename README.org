@@ -134,12 +134,15 @@ The required namespace "proto.entityevents" is not available, it was required by
 
 Restart watcher; no change.
 
+** try including .js directly
+
 As I understand it, we should be able to drop in .js files /in the classpath/
 and have them found, but the .js files cannot be in the same folder.  
 
 - see 12.2.1 Requiring JS [[https://shadow-cljs.github.io/docs/UsersGuide.html#_requiring_js][here]].
 - add a src/js directory
 - move in our generated javascript file, the one we had in our cljs tree.
+  - entityevents_grpc_web_pb.js
 
 #+begin_src clojure
 (ns acme.myproto
