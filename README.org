@@ -186,4 +186,8 @@ I can't get shadow-cljs to give me the parameters it might be passing to
 clojurescript cljs compiler...I'm not even sure it uses it.
 
 
+* Learned so far
+  - Don't use Windows.  Random clojurescript and javascript toolings
+    break in ways at times.  Use Linux or Mac.
+
 
