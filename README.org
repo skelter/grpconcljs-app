@@ -137,10 +137,20 @@ Restart watcher; no change.
 As I understand it, we should be able to drop in .js files /in the classpath/
 and have them found, but the .js files cannot be in the same folder.  
 
-- see 12.2.1 Requiring JS
+- see 12.2.1 Requiring JS [[https://shadow-cljs.github.io/docs/UsersGuide.html#_requiring_js][here]].
+- add a src/js directory
+- move in our generated javascript file, the one we had in our cljs tree.
+
+#+begin_src clojure
+(ns acme.myproto
+  (:require
+   [grpc-web]
+   ["/entityevents_grpc_web_pb.js"]
+   ))
+#+end_src
 
 When I try to use a string refer, I get a complaint about 
-not being a symbol.
+not being a symbol:
 
 #+begin_example
 [:frontend] Compiling ...
@@ -163,6 +173,14 @@ AssertionError Assert failed: (symbol? sym)
 #+end_example
 
 
-* Problem: Why can't we find grpc.web.MethodDescriptor
-I am working toward reproducing this problem with this sanitized
-project but we aren't there yet.
+Ok. I'm going around in circles.
+I am getting mixed advice on how to pull the javascript in.
+It isn't a published module.
+
+It should work with plain ol' google clo*s*ure.
+
+I can't get shadow-cljs to give me the parameters it might be passing to
+clojurescript cljs compiler...I'm not even sure it uses it.
+
+
+
