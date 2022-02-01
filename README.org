@@ -102,4 +102,67 @@ found 0 vulnerabilities
 
 #+end_example
 
+I launched shadow-cljs watch frontend.
+Checking main.js, no mention of grpc or npm yet.
+
+** copy proto code in
+#+begin_example
+$ mkdir src/main/proto
+$ cp protos.out/protos/entityevents_grpc_web_pb.js src/main/proto
+
+#+end_example
+
+** app.cljs
+Let's go edit app.cljs.
+
+#+begin_src clojure
+(ns acme.frontend.app
+  (:require [acme.myproto]))
+#+end_src
+
+#+begin_src clojure
+(ns acme.myproto
+  (:require [proto.entityevents :refer (EntityMonitorClient)]))
+#+end_src
+
+
+Noting complaint from shadow-cljs watch:
+#+begin_example
+[:frontend] Build failure:
+The required namespace "proto.entityevents" is not available, it was required by "acme/myproto.cljs".
+#+end_example
+
+Restart watcher; no change.
+
+As I understand it, we should be able to drop in .js files /in the classpath/
+and have them found, but the .js files cannot be in the same folder.  
+
+- see 12.2.1 Requiring JS
+
+When I try to use a string refer, I get a complaint about 
+not being a symbol.
+
+#+begin_example
+[:frontend] Compiling ...
+-> Resolving Module: :main
+[2022-02-01 13:02:31.185 - WARNING] :shadow.cljs.devtools.server.util/handle-ex - {:msg {:type :start-autobuild}}
+AssertionError Assert failed: (symbol? sym)
+	shadow.build.data/add-string-lookup (data.clj:121)
+	shadow.build.data/add-string-lookup (data.clj:121)
+	shadow.build.resolve/resolve-string-require (resolve.clj:473)
+	shadow.build.resolve/resolve-string-require (resolve.clj:435)
+	shadow.build.resolve/resolve-require (resolve.clj:672)
+	shadow.build.resolve/resolve-require (resolve.clj:665)
+	shadow.build.resolve/resolve-deps/fn--11716 (resolve.clj:51)
+	clojure.lang.PersistentVector.reduce (PersistentVector.java:343)
+	clojure.core/reduce (core.clj:6829)
+	clojure.core/reduce (core.clj:6812)
+	shadow.cljs.util/reduce-> (util.clj:45)
+	shadow.cljs.util/reduce-> (util.clj:44)
+
+#+end_example
+
+
 * Problem: Why can't we find grpc.web.MethodDescriptor
+I am working toward reproducing this problem with this sanitized
+project but we aren't there yet.
