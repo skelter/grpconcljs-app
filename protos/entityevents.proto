@@ -3,8 +3,11 @@ syntax = "proto3";
 package entityevents;
 
 service EntityMonitor {
-  rpc Subscribe() returns (stream EntityEvent);
+  rpc Subscribe(SubscribeReq) returns (stream EntityEvent);
   }
+
+message SubscribeReq {
+}
 
 enum EntityEventCode {
 EntitiesDump = 0;
