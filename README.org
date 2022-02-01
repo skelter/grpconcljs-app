@@ -9,8 +9,13 @@ world shifted while I was looking at other things.
 
 * Protocol
 
-#+begin_src 
+ See [[./protos/entityevents.proto]].
 
+#+begin_src 
+service EntityMonitor {
+  rpc Subscribe() returns (stream EntityEvent);
+  }
+...
 #+end_src 
 
 * Step 2: Build the gRPC communication code
