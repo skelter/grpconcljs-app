@@ -20,6 +20,7 @@ service EntityMonitor {
 
 * Step 1: Scaffold
   - [X] Init a shadow-cljs project
+    - use ~npx create-cljs-project ...~ as described in shadow-cljs README.
   - [X] create simple proto file.
 
 * Step 2: Build the gRPC communication code
@@ -79,6 +80,12 @@ Changes not staged for commit:
 
 #+end_example
 
-* Step 3: Use the communication code from CLJS
+* Step 3: Basic clojurescript app
+  Follow steps in [[https://github.com/thheller/shadow-cljs][shadow-cljs README]] to set up simplest app
+  - [X] app.cljs
+  - [X] add to shadow-cljs.edn
+  - [X] create public/index.html
+  - [X] add dev-http server to shadow-cljs.edn
+* Step 4: Use the communication code from CLJS
 
 * Problem: Why can't we find grpc.web.MethodDescriptor
