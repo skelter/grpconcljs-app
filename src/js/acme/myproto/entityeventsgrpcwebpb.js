@@ -13,7 +13,6 @@
 
 goog.provide('proto.entityevents.EntityMonitorClient');
 goog.provide('proto.entityevents.EntityMonitorPromiseClient');
-goog.boom
 goog.require('grpc.web.MethodDescriptor');
 goog.require('grpc.web.MethodType');
 goog.require('grpc.web.GrpcWebClientBase');

@@ -1,5 +1,5 @@
 (ns acme.myproto
   (:require
-   [grpc-web]
-   ["/entityevents_grpc_web_pb.js"]
+   ["/acme/myproto/a.js" :as a]
+   ["/acme/myproto/entityeventsgrpcwebpb" :as ee]
    ))
