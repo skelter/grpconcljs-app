@@ -1,4 +1,4 @@
-#+TITLE: gRPC-Web with ClojureScript
+#+TITLE: Experiment: can we gRPC-Web with ClojureScript
 
 This should have been easy...but ran into problems.  Most of this is likely my ignorance of how the javascript
 world shifted while I was looking at other things.
