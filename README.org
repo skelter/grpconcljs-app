@@ -18,6 +18,10 @@ service EntityMonitor {
 ...
 #+end_src 
 
+* Step 1: Scaffold
+  - [X] Init a shadow-cljs project
+  - [X] create simple proto file.
+
 * Step 2: Build the gRPC communication code
 
 We will need gRPC's [[https://grpc.io/docs/protoc-installation/#install-using-a-package-manager][protoc compiler]].
