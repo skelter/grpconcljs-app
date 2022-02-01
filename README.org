@@ -20,6 +20,34 @@ service EntityMonitor {
 
 * Step 2: Build the gRPC communication code
 
+We will need gRPC's [[https://grpc.io/docs/protoc-installation/#install-using-a-package-manager][protoc compiler]].
+ 
+We will also need the grpc web plugin from [[https://github.com/grpc/grpc-web/releases][here]].
+
+#+begin_example
+$ grpconcljs-app git:(main) ✗  protoc --version
+libprotoc 3.0.0
+#+end_example.
+I think we are ready to go.
+
+#+begin_src sh
+mkdir -p protos.out
+
+protoc protos/entityevents.proto \
+  --js_out=import_style=closure:protos.out \
+  --grpc-web_out=import_style=closure,mode=grpcwebtext:protos.out 
+#+end_src
+
+This generated some javascript.  
+- new file:   protos.out/entity.js
+- new file:   protos.out/entityevent.js
+- new file:   protos.out/entityeventcode.js
+- new file:   protos.out/protos/entityevents_grpc_web_pb.js
+- new file:   protos.out/subscribereq.js
+
+Hmmm using 3.0.0 may not have bugs worked out.  So downloaded 3.19.4.
+
+
 * Step 3: Use the communication code from CLJS
 
 * Problem: Why can't we find grpc.web.MethodDescriptor
