@@ -185,6 +185,10 @@ It should work with plain ol' google clo*s*ure.
 I can't get shadow-cljs to give me the parameters it might be passing to
 clojurescript cljs compiler...I'm not even sure it uses it.
 
+** Progres
+- generating in closure output mode ok if dropping in a node_module maybe, 
+      but the shadow-cljs string refer expect commonjs.
+   - [ ] rework with commonjs instead and use that to drop in
 
 * Learned so far
   - Don't use Windows.  Random clojurescript and javascript toolings
@@ -192,3 +196,5 @@ clojurescript cljs compiler...I'm not even sure it uses it.
     - No really.  Seriously.  Don't.
 
 
+  - generating in closure output mode ok if dropping in a node_module maybe, 
+      but the shadow-cljs string refer expect commonjs.
