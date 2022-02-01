@@ -1,0 +1,20 @@
+#+TITLE: gRPC-Web with ClojureScript
+
+This should have been easy...but ran into problems.  Most of this is likely my ignorance of how the javascript
+world shifted while I was looking at other things.
+
+1. We will design a quick little protocol for a client to get a stream of events.
+2. We will generate the javascript for the protocol.
+3. We will use that from clojurescript.
+
+* Protocol
+
+#+begin_src 
+
+#+end_src 
+
+* Step 2: Build the gRPC communication code
+
+* Step 3: Use the communication code from CLJS
+
+* Problem: Why can't we find grpc.web.MethodDescriptor
