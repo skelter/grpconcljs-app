@@ -13,7 +13,7 @@ world shifted while I was looking at other things.
 
 #+begin_src 
 service EntityMonitor {
-  rpc Subscribe() returns (stream EntityEvent);
+  rpc Subscribe(SubscribeReq) returns (stream EntityEvent);
   }
 ...
 #+end_src 
