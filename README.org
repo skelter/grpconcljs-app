@@ -47,6 +47,33 @@ This generated some javascript.
 
 Hmmm using 3.0.0 may not have bugs worked out.  So downloaded 3.19.4.
 
+#+begin_example
+$  grpconcljs-app git:(main)  protoc --version                                
+libprotoc 3.19.4
+
+$  grpconcljs-app git:(main) ✗  rm -rfv protos.out/*
+zsh: sure you want to delete all 5 files in /home/skelter/work/grpconcljs-app/protos.out [yn]? y
+removed 'protos.out/entityeventcode.js'
+removed 'protos.out/entityevent.js'
+removed 'protos.out/entity.js'
+removed 'protos.out/protos/entityevents_grpc_web_pb.js'
+removed directory 'protos.out/protos'
+removed 'protos.out/subscribereq.js'
+$  grpconcljs-app git:(main) ✗  protoc protos/entityevents.proto \
+  --js_out=import_style=closure:protos.out \
+  --grpc-web_out=import_style=closure,mode=grpcwebtext:protos.out
+$  grpconcljs-app git:(main) ✗  git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   protos.out/entity.js
+	modified:   protos.out/entityevent.js
+	modified:   protos.out/entityeventcode.js
+	modified:   protos.out/subscribereq.js
+
+#+end_example
 
 * Step 3: Use the communication code from CLJS
 
